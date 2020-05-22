@@ -12,6 +12,10 @@ import { RecursosHumanosComponent } from './pages/recursos-humanos/recursos-huma
 import { LoginComponent } from './pages/login/login.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { ContabilidadComponent } from './pages/contabilidad/contabilidad.component';
+import { GastosComponent } from './pages/contabilidad/gastos/gastos.component';
+import { EstadosFinancierosComponent } from './pages/contabilidad/estados-financieros/estados-financieros.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +28,10 @@ import { FooterComponent } from './shared/footer/footer.component';
     RecursosHumanosComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ContabilidadComponent,
+    GastosComponent,
+    EstadosFinancierosComponent
   ],
   imports: [
     BrowserModule,
