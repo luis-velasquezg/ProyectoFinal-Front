@@ -7,14 +7,14 @@ const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  
+
 @Injectable({
     providedIn: 'root'
     })
 export class InventarioService {
 
-    // private urlAPI = 'http://localhost:8080/conficiet/api/v1/maquinas';
-    private urlAPI = 'http://192.168.137.1:8080/conficiet/api/v1/maquinas/';
+    private urlAPI = 'http://localhost:8080/conficiet/api/v1/maquinas';
+    // private urlAPI = 'http://192.168.137.1:8080/conficiet/api/v1/maquinas/';
 
     constructor(protected http: HttpClient) { }
 
