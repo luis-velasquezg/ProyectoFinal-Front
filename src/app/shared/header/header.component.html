@@ -12,25 +12,35 @@
       </svg>
     </label>
     <div class="ae-container-fluid rk-topbar">
-      <h1 class="rk-logo"><a href="index.html">Conficiet<sup>tm</sup></a></h1>
+      <h1 class="rk-logo">
+        <a routerLink="home">Conficiet<sup>tm</sup></a>
+      </h1>
       <nav class="rk-navigation">
         <ul class="rk-menu">
-          <li class="rk-menu__item"><a href="index.html" class="rk-menu__link">Home</a>
+          <li routerLinkActive="active" class="rk-menu__item">
+            <a routerLink="home" class="rk-menu__link">Home</a>
           </li>
-          <li class="active rk-menu__item"><a href="portfolio.html" class="rk-menu__link">Inventario</a>
+          <li routerLinkActive="active" class="active rk-menu__item">
+            <a routerLink="inventario" class="rk-menu__link">Inventario</a>
           </li>
-          <li class="rk-menu__item"><a href="blog.html" class="rk-menu__link">Ventas</a>
+          <li routerLinkActive="active" class="rk-menu__item">
+            <a routerLink="ventas" class="rk-menu__link">Ventas</a>
             <nav class="rk-menu__sub">
               <ul class="rk-container">
-                <li class="rk-menu__item"><a href="about.html" class="rk-menu__link">Facturación Electrónica</a></li>
+                <li class="rk-menu__item">
+                  <a routerLink="ventas" class="rk-menu__link">Facturación Electrónica</a>
+                </li>
               </ul>
             </nav>
           </li>
-          <li class="rk-menu__item"><a href="blog.html" class="rk-menu__link">Compras</a>
+          <li class="rk-menu__item">
+            <a routerLink="compras" class="rk-menu__link">Compras</a>
           </li>
-          <li class="rk-menu__item"><a href="blog.html" class="rk-menu__link">Recursos Humanos</a>
+          <li class="rk-menu__item">
+            <a routerLink="recursos-humanos" class="rk-menu__link">Recursos Humanos</a>
           </li>
-          <li class="rk-menu__item"><a href="#0" class="rk-menu__link">Contabilidad</a>
+          <li class="rk-menu__item">
+            <a href="#0" class="rk-menu__link">Contabilidad</a>
             <nav class="rk-menu__sub">
               <ul class="rk-container">
                 <li class="rk-menu__item"><a href="about.html" class="rk-menu__link">Gastos</a></li>

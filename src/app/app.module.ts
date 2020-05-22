@@ -15,6 +15,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ContabilidadComponent } from './pages/contabilidad/contabilidad.component';
 import { GastosComponent } from './pages/contabilidad/gastos/gastos.component';
 import { EstadosFinancierosComponent } from './pages/contabilidad/estados-financieros/estados-financieros.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -35,9 +36,10 @@ import { EstadosFinancierosComponent } from './pages/contabilidad/estados-financ
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [InventarioComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

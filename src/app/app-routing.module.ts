@@ -12,7 +12,6 @@ import { VentasComponent } from './pages/ventas/ventas.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'compras', component: ComprasComponent },
-  // { path: 'facturacion', component: FacturacionComponent },
   { path: 'inventario', component: InventarioComponent },
   { path: 'login', component: LoginComponent },
   { path: 'recursos-humanos', component: RecursosHumanosComponent },
@@ -22,7 +21,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { useHash: false } )
+    RouterModule.forRoot(routes, { useHash: true } )
   ],
   exports: [RouterModule]
 })

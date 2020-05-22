@@ -1,1 +1,29 @@
-<p>inventario works!</p>
+<div style="text-align:center">
+    <h3 id="titulo-inventario">
+        {{ title }}
+    </h3>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Tipo</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor='let maquina of maquinas'>
+            <td>{{ maquina.id }}</td>
+            <td>{{ maquina.marca }}</td>
+            <td>{{ maquina.modelo }}</td>
+            <td>{{ maquina.tipo }}</td>
+            <td>{{ maquina.estado}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- <p>{{ mensaje }}</p> -->

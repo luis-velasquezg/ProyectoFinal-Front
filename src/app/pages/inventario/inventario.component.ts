@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { InventarioService } from 'src/app/services/inventario.service';
+import { Maquina } from 'src/app/classes/maquina';
 
 @Component({
   selector: 'app-inventario',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InventarioComponent implements OnInit {
 
-  constructor() { }
+  title = 'Inventario';
+  maquinas: Maquina[];
 
-  ngOnInit(): void {
+  constructor( protected inventarioService: InventarioService) { }
+
+  ngOnInit() {
+    this.inventarioService.getMaquinas()
+      .subscribe(
+        (data) => {
+          this.maquinas = data;
+          console.log(this.maquinas);
+        }
+      );
   }
 
 }
