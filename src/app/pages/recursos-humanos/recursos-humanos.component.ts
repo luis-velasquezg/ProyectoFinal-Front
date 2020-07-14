@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Usuario } from 'src/app/classes/usuario';
 
 @Component({
   selector: 'app-recursos-humanos',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecursosHumanosComponent implements OnInit {
 
-  constructor() { }
+  title = 'Recursos Humanos';
+  usuarios: Usuario[];
 
-  ngOnInit(): void {
+  constructor( protected usuarioService: UsuarioService ) { }
+
+  ngOnInit() {
+    this.usuarioService.getUsuarios()
+      .subscribe(
+        (data) => {
+          this.usuarios = data;
+          console.log(this.usuarios);
+        }
+      );
   }
 
 }

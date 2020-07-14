@@ -1,1 +1,30 @@
-<p>recursos-humanos works!</p>
+<div style="text-align:center">
+    <h3 id="titulo-inventario">
+        {{ title }}
+    </h3>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombres</th>
+            <th>Apellidos</th>
+            <!-- <th>Rol</th> -->
+            <th>Usuario</th>
+            <th>Teléfono</th>
+            <th>Estado</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor='let usuario of usuarios'>
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.nombres }}</td>
+            <td>{{ usuario.apellidos }}</td>
+            <td>{{ usuario.usuario }}</td>
+            <td>{{ usuario.telefono}}</td>
+            <td>{{ usuario.estaActivo}}</td>
+        </tr>
+    </tbody>
+</table>

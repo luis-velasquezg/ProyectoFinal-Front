@@ -13,8 +13,9 @@ const httpOptions = {
     })
 export class InventarioService {
 
-    private urlAPI = 'http://localhost:8080/conficiet/api/v1/maquinas';
+    // private urlAPI = 'http://localhost:8080/conficiet/api/v1/maquinas';
     // private urlAPI = 'http://192.168.137.1:8080/conficiet/api/v1/maquinas/';
+    private urlAPI = 'https://conficiet-back.herokuapp.com/conficiet/api/v1/maquinas';
 
     constructor(protected http: HttpClient) { }
 
