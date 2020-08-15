@@ -4,31 +4,52 @@
     </h3>
 </div>
 
+<h1>Formulario con FormGroup</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" formControlName="usuario" required/>
+    </div>
+
+    <div class="form-group">
+        <label for="contrasenna">Contraseña</label>
+        <input type="password" id="contrasenna" formControlName="contrasenna" required/>
+    </div>
+    
+    <div class="form-group">
+        <button class="btn btn-primary btn-block">
+            Iniciar Sesión
+        </button>
+    </div>
+</form>
+
+
+
+<!-- <h1>Formulario sin FormGroup</h1>
 <div>
     <table>
         <tr>
             <td>
-                <label for="usuario">Usuario</label>
+                <label for="usuario2">Usuario</label>
             </td>
             <td>
-                <input type="text" id="usuario" />
+                <input type="text" id="usuario2" value="[usuario2]" />
             </td>
         </tr>
         <tr>
             <td>
-                <label for="contrasenna">Contraseña</label>
+                <label for="contrasenna2">Contraseña</label>
             </td>
             <td>
-                <input type="password" id="contrasenna" />
+                <input type="password" id="contrasenna2" value="[contrasenna2]" />
             </td>
         </tr>
         <tr>
             <td>
                 <button class="btn btn-primary btn-block" type="button" (click)="[validarLogin('fedekiko', 'contrasenna')]">
-                <!-- <button class="btn btn-primary btn-block" type="button"> -->
-                    Iniciar Sesión
+                    Iniciar Sesión 2
                 </button>
             </td>
         </tr>
     </table>
-</div>
+</div> -->

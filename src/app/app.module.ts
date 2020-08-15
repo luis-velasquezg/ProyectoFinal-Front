@@ -16,6 +16,7 @@ import { ContabilidadComponent } from './pages/contabilidad/contabilidad.compone
 import { GastosComponent } from './pages/contabilidad/gastos/gastos.component';
 import { EstadosFinancierosComponent } from './pages/contabilidad/estados-financieros/estados-financieros.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [InventarioComponent],
   bootstrap: [AppComponent]

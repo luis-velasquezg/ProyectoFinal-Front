@@ -11,16 +11,38 @@ import { Usuario } from '../../classes/usuario';
 })
 export class LoginComponent implements OnInit {
 
+
+  form: FormGroup;
   title = 'Iniciar Sesión';
   usuarioValidado: Usuario;
 
-  constructor(
-    private usuarioService: UsuarioService
-  ) { }
+  loading = false;
+  submitted = false;
 
-  ngOnInit(): void {
+  // usuario: string;
+  // contrasenna: string;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private usuarioService: UsuarioService
+) { }
+
+  // constructor(
+  //   private usuarioService: UsuarioService
+  // ) { }
+
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      usuario: ['', Validators.required],
+      contrasenna: ['', Validators.required]
+    });
+    // get return url from route parameters or default to '/'
+      // this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  // Metodo sin usar
   validarLogin(usuario, contrasenna): any {
     console.log("Validando login");
     this.usuarioService.getLoginUsuario(usuario, contrasenna)
@@ -28,15 +50,48 @@ export class LoginComponent implements OnInit {
     .subscribe(
         data => {
           this.usuarioValidado = data;
+        },
+        error => {
+          console.log('Hubo un error:' + error);
         });
     console.log(this.usuarioValidado);
+    console.log('El usuario ingresado es: ' + this.usuarioValidado.usuario);
+    console.log('El contrasenna ingresada es: ' + this.usuarioValidado.contrasenna);
     return this.usuarioValidado;
-    // return this.usuarioService.getLoginUsuario(usuario, contrasenna);
+
+    // [COMENTARIO] return this.usuarioService.getLoginUsuario(usuario, contrasenna);
   }
 
 
-  // onSubmit() {
-  //   console.log("Presionaste el boton");
-  // }
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.form.invalid) {
+      console.log("Formulario invalido");
+      return;
+    }
+
+    console.log("Validando Login");
+    this.loading = true;
+    const usuario = this.form.get('usuario').value;
+    const contrasenna = this.form.get('contrasenna').value;
+    this.usuarioService.getLoginUsuario(usuario, contrasenna)
+    .subscribe(
+        data => {
+          if (data == null) {
+            console.log('Data es nulo');
+            return;
+          }
+          this.usuarioValidado = data;
+          console.log('Entro en data');
+          console.log(this.usuarioValidado);
+          this.router.navigate(["ventas"]);
+        },
+        error => {
+          this.loading = false;
+          console.log('Hubo un error:' + error);
+        });
+
+  }
 
 }
