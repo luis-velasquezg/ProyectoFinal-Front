@@ -17,7 +17,9 @@ export class UsuarioService {
     // private urlAPI = 'http://192.168.137.1:8080/conficiet/api/v1/usuarios/';
     private urlAPI = 'https://conficiet-back.herokuapp.com/conficiet/api/v1/usuarios';
 
-    constructor(protected http: HttpClient) { }
+    constructor(
+        protected http: HttpClient
+        ) { }
 
     getUsuarios(): Observable<any> {
         return this.http.get(this.urlAPI);

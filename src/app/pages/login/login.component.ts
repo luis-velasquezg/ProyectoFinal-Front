@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from '../../services/usuario.service';
 import { Usuario } from '../../classes/usuario';
+//import { HeaderComponent } from '../../shared/header/header.component';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,8 @@ export class LoginComponent implements OnInit {
 
   loading = false;
   submitted = false;
+
+  //private header: HeaderComponent;
 
   // usuario: string;
   // contrasenna: string;
@@ -73,9 +76,17 @@ export class LoginComponent implements OnInit {
 
     console.log("Validando Login");
     this.loading = true;
-    const usuario = this.form.get('usuario').value;
-    const contrasenna = this.form.get('contrasenna').value;
-    this.usuarioService.getLoginUsuario(usuario, contrasenna)
+    //const usuario = this.form.get('usuario').value;
+    //const contrasenna = this.form.get('contrasenna').value;
+
+
+    const objetoUsuario = {
+      usuario: this.form.get('usuario').value,
+      contrasenna: this.form.get('contrasenna').value
+    };
+
+    // this.usuarioService.getLoginUsuario(usuario, contrasenna)
+    this.usuarioService.getLoginUsuario(objetoUsuario.usuario, objetoUsuario.contrasenna)
     .subscribe(
         data => {
           if (data == null) {
@@ -86,6 +97,9 @@ export class LoginComponent implements OnInit {
           console.log('Entro en data');
           console.log(this.usuarioValidado);
           this.router.navigate(["ventas"]);
+          localStorage.setItem('Usuario', JSON.stringify(objetoUsuario));
+          console.log("Datos locales: " + JSON.parse(localStorage.getItem('Usuario')).usuario);
+          //this.usuarioService.actualizarEstadoSesion(true);
         },
         error => {
           this.loading = false;
@@ -93,5 +107,10 @@ export class LoginComponent implements OnInit {
         });
 
   }
+
+
+
+  // sessionStorage.setItem('usuario', )
+  // localStorage.setItem
 
 }
